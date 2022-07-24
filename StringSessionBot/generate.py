@@ -62,7 +62,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
             ty += " v2"
     if is_bot:
         ty += " Bot"
-    await msg.reply(f"Starting {ty} Session Generation...")
+    await msg.reply(f"بدء {ty} استخراج الجلسة...")
     user_id = msg.chat.id
     api_id_msg = await bot.ask(user_id, 'الرجاء إرسال الخاص بك`API_ID`', filters=filters.text)
     if await cancelled(api_id_msg):
