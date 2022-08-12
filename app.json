@@ -25,7 +25,7 @@
          "plan": "heroku-postgresql"
       }
    ],
-  "repository": "https://github.com/Tepthom/st",
+  "repository": "https://github.com/gg60t/sesssonbot",
   "env": {
     "ENVIRONMENT": {
       "description": "Don't change ANYTHING.",
