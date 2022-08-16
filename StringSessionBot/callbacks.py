@@ -56,10 +56,10 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
             elif query == "pyrogram_bot":
                 await callback_query.answer("Please note that this bot session will be of pyrogram v2", show_alert=True)
                 await generate_session(bot, callback_query.message, is_bot=True)
-            elif query == "telethon_bot":
+            elif query == "ICTHON_bot":
                 await callback_query.answer()
                 await generate_session(bot, callback_query.message, telethon=True, is_bot=True)
-            elif query == "telethon":
+            elif query == "ICTHON":
                 await callback_query.answer()
                 await generate_session(bot, callback_query.message, telethon=True)
         except Exception as e:
@@ -69,6 +69,6 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
 
 
 ERROR_MESSAGE = "Oops! An exception occurred! \n\n**Error** : {} " \
-            "\n\nPlease visit @P17_12 if this message doesn't contain any " \
+            "\n\nPlease visit @ICTHON if this message doesn't contain any " \
             "sensitive information and you if want to report this as " \
             "this error message is not being logged by us!"
