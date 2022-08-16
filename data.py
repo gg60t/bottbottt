@@ -13,12 +13,12 @@ class Data:
 
     buttons = [
         generate_single_button,
-        [InlineKeyboardButton("✨ للـمزيـد من البوتات", url="https://t.me/qlv88")],
+        [InlineKeyboardButton("✨ لتنصيب سورس ايكثون", url="https://t.me/ICTHON")],
         [
             InlineKeyboardButton("طـريـقـة الـإسـتخـدام ❔", callback_data="help"),
-            InlineKeyboardButton("🎪 حـول 🎪", callback_data="about")
+            InlineKeyboardButton(" حـول ", callback_data="about")
         ],
-        [InlineKeyboardButton("🖥️| الـسـورس", url="https://t.me/ICTHON")],
+        [InlineKeyboardButton("🖥️|قناة الـسـورس", url="https://t.me/ICTHON")],
     ]
 
     START = """
@@ -33,7 +33,7 @@ class Data:
 لا أزال أقرأ؟
 يمكنك استخدامي لإنشاء pyrogram (حتى الإصدار 2) وجلسة telethon string. استخدم الأزرار أدناه لمعرفة المزيد!
 
-By @T_P_Q
+By @ICTHON
     """
 
     HELP = """
