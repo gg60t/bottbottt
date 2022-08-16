@@ -18,7 +18,7 @@ class Data:
             InlineKeyboardButton("طـريـقـة الـإسـتخـدام ❔", callback_data="help"),
             InlineKeyboardButton("🎪 حـول 🎪", callback_data="about")
         ],
-        [InlineKeyboardButton("🖥️| الـسـورس", url="https://t.me/qlv88")],
+        [InlineKeyboardButton("🖥️| الـسـورس", url="https://t.me/ICTHON")],
     ]
 
     START = """
@@ -50,13 +50,13 @@ By @T_P_Q
     ABOUT = """
 **About This Bot** 
 
-هذا بوت استخراج كود تريمكس و بايروجرام مشغل من @T_P_Q
+هذا بوت استخراج كود تريمكس و بايروجرام مشغل من @ICTHON
 
-كود السورس : [Click Here](https://t.me/qlv88)
+المطور : [Click Here](https://t.me/BEEEB5)
 
 برمجة البوت : [Pyrogram](https://docs.pyrogram.org)
 
 لغة البوت : [Python](https://www.python.org)
 
-المطور : @T_P_Q
+قناة المطور : @ICTHON
     """
