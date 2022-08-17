@@ -1,10 +1,10 @@
 from data import Data
 from pyrogram.types import Message
-from telethon import TelegramClient
+from ICTHON import TelegramClient
 from pyrogram import Client, filters
 from pyrogram1 import Client as Client1
 from asyncio.exceptions import TimeoutError
-from telethon.sessions import StringSession
+from ICTHON.sessions import StringSession
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import (
     ApiIdInvalid,
@@ -22,7 +22,7 @@ from pyrogram1.errors import (
     SessionPasswordNeeded as SessionPasswordNeeded1,
     PasswordHashInvalid as PasswordHashInvalid1
 )
-from telethon.errors import (
+from ICTHON.errors import (
     ApiIdInvalidError,
     PhoneNumberInvalidError,
     PhoneCodeInvalidError,
@@ -36,14 +36,14 @@ ask_ques = "الرجاء اختيار الجلسة الخاص بك اذا كنت
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram", callback_data="pyrogram1"),
-        InlineKeyboardButton("telethon", callback_data="telethon"),
+        InlineKeyboardButton("ICTHON", callback_data="ICTHON"),
     ],
     [
         InlineKeyboardButton("Pyrogram v2 [New]", callback_data="pyrogram"),
     ],
     [
         InlineKeyboardButton("Pyrogram Bot", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("telethon Bot", callback_data="telethon_bot"),
+        InlineKeyboardButton("ICTHON Bot", callback_data="ICTHON_bot"),
     ],
 ]
 
@@ -53,9 +53,9 @@ async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
 
-async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
-    if telethon:
-        ty = "Telethon"
+async def generate_session(bot: Client, msg: Message, ICTHON=False, old_pyro: bool = False, is_bot: bool = False):
+    if ICTHON:
+        ty = "ICTHON"
     else:
         ty = "Pyrogram"
         if not old_pyro:
@@ -88,9 +88,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         await msg.reply("Sending OTP...")
     else:
         await msg.reply("Logging as Bot User...")
-    if telethon and is_bot:
+    if ICTHON and is_bot:
         client = TelegramClient(StringSession(), api_id, api_hash)
-    elif telethon:
+    elif ICTHON:
         client = TelegramClient(StringSession(), api_id, api_hash)
     elif is_bot:
         client = Client(name="bot", api_id=api_id, api_hash=api_hash, bot_token=phone_number, in_memory=True)
@@ -102,7 +102,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     try:
         code = None
         if not is_bot:
-            if telethon:
+            if ICTHON:
                 code = await client.send_code_request(phone_number)
             else:
                 code = await client.send_code(phone_number)
@@ -142,7 +142,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 return
             try:
                 password = two_step_msg.text
-                if telethon:
+                if ICTHON:
                     await client.sign_in(password=password)
                 else:
                     await client.check_password(password=password)
@@ -152,11 +152,11 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
                 await two_step_msg.reply('Invalid Password Provided. Please start generating session again.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
     else:
-        if telethon:
+        if ICTHON:
             await client.start(bot_token=phone_number)
         else:
             await client.sign_in_bot(phone_number)
-    if telethon:
+    if ICTHON:
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
@@ -169,7 +169,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
     except KeyError:
         pass
     await client.disconnect()
-    await bot.send_message(msg.chat.id, "Successfully generated {} string session. \n\nPlease check your saved messages! \n\nBy @ICTHON".format("ICTHON" if telethon else "pyrogram"))
+    await bot.send_message(msg.chat.id, "Successfully generated {} string session. \n\nPlease check your saved messages! \n\nBy @ICTHON".format("ICTHON" if ICTHON else "pyrogram"))
 
 
 async def cancelled(msg):
