@@ -36,14 +36,14 @@ ask_ques = "الرجاء اختيار الجلسة الخاص بك اذا كنت
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram", callback_data="pyrogram1"),
-        InlineKeyboardButton("ICTHON", callback_data="ICTHON"),
+        InlineKeyboardButton("telethon", callback_data="telethon"),
     ],
     [
         InlineKeyboardButton("Pyrogram v2 [New]", callback_data="pyrogram"),
     ],
     [
         InlineKeyboardButton("Pyrogram Bot", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("ICTHON Bot", callback_data="ICTHON_bot"),
+        InlineKeyboardButton("telethon Bot", callback_data="telethon_bot"),
     ],
 ]
 
